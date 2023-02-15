@@ -13,7 +13,7 @@ const IconInput = ({ label, icon, width = 250, size, ...delegated }) => {
       <IconWrapper style={{ "--size": 16 + "px" }}>
         <Icon id={icon} size={16} />
       </IconWrapper>
-      <TextInput {...delegated} />
+      <TextInput {...delegated} style={{ "--width": width + "px" }} />
     </Wrapper>
   );
 };
@@ -21,6 +21,15 @@ const IconInput = ({ label, icon, width = 250, size, ...delegated }) => {
 const Wrapper = styled.label`
   display: block;
   position: relative;
+  color: ${COLORS.gray700};
+
+  ${
+    "" /* Hovering over input will lead 
+    to hovering over label */
+  }
+  &:hover {
+    color: ${COLORS.black};
+  }
 `;
 
 const IconWrapper = styled.div`
@@ -32,18 +41,18 @@ const IconWrapper = styled.div`
 `;
 
 const TextInput = styled.input`
+  width: var(--width);
   height: ${24 / 16}rem;
   border: 0;
   border-bottom: 1px solid ${COLORS.black};
   padding-left: 24px;
-  color: ${COLORS.gray700};
+  color: inherit;
   font-weight: 700;
   outline-offset: 2px;
 
   &::placeholder {
     color: ${COLORS.gray500};
-  font-weight: 400;
-
+    font-weight: 400;
   }
 `;
 
