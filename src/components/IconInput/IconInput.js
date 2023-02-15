@@ -38,9 +38,9 @@ const IconInput = ({ label, icon, width = 250, size, ...delegated }) => {
         {...delegated}
         style={{
           "--width": width + "px",
-          "--height": styles.height + "px",
+          "--height": styles.height / 16 + "rem",
           "--borderThickness": styles.borderThickness + "px",
-          "--font-size": styles.fontSize + "px",
+          "--font-size": styles.fontSize / 16 + "rem",
         }}
       />
     </Wrapper>
